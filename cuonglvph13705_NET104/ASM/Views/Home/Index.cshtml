@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ASM.Models.SanPham>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container-fluid" action="Index" >
+    <div class="row">
+        @foreach (var x in Model)
+        {
+            if (x.SoLuong>0)
+            {
+                <div class="col-3 ">
+                    <div class="card border h-100" style="width: 18rem;">
+                        <img src="~/images/@x.ImgName" class="card-img-top" style="width : 250px  ; height : 250px" />
+                        <div class="card-body" align="center">
+                            <h5 class="card-title">@x.TenSanPham</h5>
+                            <p class="card-text"> @String.Format("{0:#,##0.##}", x.GiaBan) đ</p>
+                            <p class="card-text">@x.SoLuong</p>
+                            <form  asp-controller="Cart" asp-action="Create" asp-route-id="@x.MaSanPham" >
+                                <input type="submit" name="name" value="Mua Ngay" class="btn btn-outline-success" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+</div>

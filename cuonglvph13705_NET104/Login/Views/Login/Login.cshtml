@@ -1,0 +1,19 @@
+﻿@{ 
+    var Notfound = ViewData["Notfound"] as string;
+}
+<h5>Login</h5>
+<div>
+    <form action="/Login/Login" method="post" class="form-group">
+
+        <label>Nhập username</label>
+        <input type="text" name="username" value="" />
+        <label>Nhập Password</label>
+        <input type="text" name="password" value="" />
+        <input type="submit"  value="Login" />
+
+    </form>
+    @if (Notfound!=null)
+    {
+      <h2>@Notfound</h2>
+    }
+</div>

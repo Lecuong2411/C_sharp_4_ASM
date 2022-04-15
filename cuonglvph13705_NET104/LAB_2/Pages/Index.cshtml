@@ -1,0 +1,94 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container bg-light p-2 text-dark bg-opacity-75">
+    <section>
+        <!--Bắt Đầu Phần Hình Ảnh-->
+        <div class="img-bg">
+            <img src="https://niemvuilaptrinh.ams3.cdn.digitaloceanspaces.com/tao_trang_dang_nhap/hinh_anh_minh_hoa.jpg" alt="Hình Ảnh Minh Họa">
+        </div>
+        <!--Kết Thúc Phần Hình Ảnh-->
+        <!--Bắt Đầu Phần Nội Dung-->
+        <div class="noi-dung">
+            <div class="form">
+                <h2>Đăng Nhập</h2>
+                <form action="">
+                    <div class="input-form">
+                        <span>Username</span>
+                        <input type="text" name="" ng-model="userName" required>
+                    </div>
+                    <div class="input-form">
+                        <span>Password</span>
+                        <input type="password" name="" ng-model="passWord" required>
+                    </div>
+                    <div class="nho-dang-nhap">
+                        <label><input type="checkbox" name=""> Hiện mật khẩu</label>
+                    </div>
+                    <div class="input-form">
+                        <input type="submit" value="Đăng Nhập" ng-click="dangNhap()">
+                    </div>
+                    <div class="input-form d-grid gap-2 col-6 mx-auto">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Đăng kí
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- Button trigger modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Đăng kí</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Full name</label>
+                                    <input type="text" class="form-control" ng-model="taikhoan.fullname" id="exampleFormControlInput1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" ng-model="taikhoan.email" id="exampleFormControlInput2">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                    <input type="text" class="form-control" ng-model="taikhoan.username" id="exampleFormControlInput3">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                    <input type="text" class="form-control" ng-model="taikhoan.password" id="exampleFormControlInput4">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Birthday</label>
+                                    <input type="date" class="form-control" ng-model="taikhoan.birthday" id="exampleFormControlInput5">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="">Giới tính</label>
+                                    <select ng-model="taikhoan.gender" class="form-control">
+                                        <option ng-repeat="gen in genderList" name="Gioitinh" value="{{gen.id}}">{{gen.value}}</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Học phí</label>
+                                    <input type="number" class="form-control" ng-model="taikhoan.schoolfee" id="exampleFormControlInput6">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-primary" ng-click="createStudent()">Đăng kí</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Kết Thúc Phần Nội Dung-->
+    </section>
+</div>

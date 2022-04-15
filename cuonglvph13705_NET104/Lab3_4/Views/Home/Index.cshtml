@@ -1,0 +1,37 @@
+﻿@model Lab3_4.Models.nhieusinhvien;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Bài 1</h1>
+    @foreach (var x in Model.sinhviens)
+    {
+        @if (x != null)
+        {
+            <h5>Tên em là  @x.name ,em @x.age Tuổi , em @Convert.ToString(x.status == true ? "Đã có gia đình" : "ế")</h5>
+        }
+    }
+    <h1>Bài 2</h1>
+        @foreach (var x in Model.sinhviens.Select(c => c.address.Split(",")[3]).Distinct())
+        {
+            foreach (var a in Model.sinhviens.Where(c => c.address.Trim().Contains(x)))
+            {
+                <h5>Tên @a.name, @a.address</h5>
+            }
+        }
+
+    <h1>Bài 3</h1>    
+
+
+        @foreach (var x in Model.sinhviens.Select(c => c.name.Substring(c.name.LastIndexOf(" ") + 1)).Distinct())
+        {
+            if ((Model.sinhviens.Where(c => c.name.Substring(c.name.LastIndexOf(" ") + 1) == x).Count()) > 1)
+            {
+                foreach (var a in Model.sinhviens.Where(c => c.name.Trim().Contains(x)))
+                {
+                    <h5>Tên @a.name, @a.address</h5>
+                }
+            }
+        }
+</div>

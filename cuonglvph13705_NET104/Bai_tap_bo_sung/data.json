@@ -1,0 +1,32 @@
+﻿[
+	{
+		"id": "sv1",
+		"name": "Le Van Cuong",
+		"tuoi": 19,
+		"diem": 8.9
+	},
+	{
+		"id": "sv2",
+		"name": "Thieu Quang Vinh",
+		"tuoi": 20,
+		"diem": 7.9
+	},
+	{
+		"id": "sv3",
+		"name": "Do Tat Hoa",
+		"tuoi": 20,
+		"diem": 10
+	},
+	{
+		"id": "sv4",
+		"name": "Truong Van Tu",
+		"tuoi": 20,
+		"diem": 9.9
+	},
+	{
+		"id": "sv5",
+		"name": "Ho The Trung",
+		"tuoi": 20,
+		"diem": 6.9
+	}
+]

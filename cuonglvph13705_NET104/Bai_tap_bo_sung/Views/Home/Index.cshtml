@@ -1,0 +1,71 @@
+﻿@{
+    var sv = ViewData["SV"] as List<SinhVien>;
+    lstSv lst = new lstSv(sv);
+    string a;
+    string b;
+    string c;
+}
+<div>
+    <h6>Sinh viên có điểm trung bình cao nhất là : @sv.Max(c => c.Diem)</h6>
+    <h6>Mã sinh viên của sinh viên là :</h6>
+    @{
+        var lstSinhVienTemb = lst.LstSinhvien;
+
+
+        for (int i = 0; i < lst.LstSinhvien.Count; i++)
+        {
+            int lenghtFullName = lst.LstSinhvien[i].Name.Split(" ").Length;
+
+            for (int j = 0; j < lenghtFullName - 1; j++)
+            {
+                var charText = lst.LstSinhvien[i].Name.Split(" ")[j];
+                var charIndex1 = charText.Substring(0, 1);
+                lstSinhVienTemb[i].Name = lstSinhVienTemb[i].Name + charIndex1;
+
+            }
+            lstSinhVienTemb[i].Name = lst.LstSinhvien[i].Name.Split(" ")[lenghtFullName - 1];
+        }
+        int index1 = 1;
+        var lsttemb = lstSinhVienTemb.OrderBy(c => c.Name).ToList();
+        for (int i = 0; i < lsttemb.Count; i++)
+        {
+            if (i + 1 == lsttemb.Count)
+            {
+                break;
+
+            }
+            if (lsttemb[i].Name == lsttemb[i + 1].Name)
+            {
+                lsttemb[i + 1].Name = lsttemb[i + 1].Name + index1;
+                ++index1;
+                ++i;
+            }
+            else
+            {
+                index1 = 1;
+            }
+            if (i == lsttemb.Count)
+            {
+                break;
+            }
+        }
+        foreach (var x in lsttemb)
+        {
+            <p> @x.Id, Ten @x.Name, Diem @x.Diem, Tuoi @x.Tuoi</p>
+            }
+    }
+
+    <h6>Người có tuổi lớn thứ 2 là : </h6>
+   @{ 
+
+       Random random = new Random();
+       int length = lst.LstSinhvien.Count;
+
+       for (var i = 0; i < length; i++)
+       {
+           lst.LstSinhvien[i].Name += ((int)(random.Next(1, 26) + 64)).ToString().ToLower();
+       }
+
+
+   }
+</div>
